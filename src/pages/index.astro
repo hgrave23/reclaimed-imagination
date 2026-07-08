@@ -38,9 +38,46 @@ const outsideOfWork = [
 ---
 
 <Layout>
+  <!-- Nav -->
+  <div class="fixed top-4 right-4 z-50 sm:top-6 sm:right-6">
+    <details class="group" data-nav>
+      <summary
+        class="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-ink/10 bg-cream/90 shadow-md backdrop-blur transition-colors hover:border-rust/40 [&::-webkit-details-marker]:hidden"
+      >
+        <Icon name="menu" class="h-5 w-5 text-ink" />
+      </summary>
+      <nav class="absolute right-0 mt-2 w-52 rounded-xl border border-ink/10 bg-cream p-2 shadow-lg">
+        <a
+          href="#what-i-do"
+          class="block rounded-lg px-3 py-2 font-body text-sm font-semibold text-ink transition-colors hover:bg-rust/10 hover:text-rust"
+        >
+          What I Do
+        </a>
+        <a
+          href="#links"
+          class="block rounded-lg px-3 py-2 font-body text-sm font-semibold text-ink transition-colors hover:bg-rust/10 hover:text-rust"
+        >
+          Links
+        </a>
+        <a
+          href="#about"
+          class="block rounded-lg px-3 py-2 font-body text-sm font-semibold text-ink transition-colors hover:bg-rust/10 hover:text-rust"
+        >
+          About Josh
+        </a>
+        <a
+          href="#contact"
+          class="block rounded-lg px-3 py-2 font-body text-sm font-semibold text-ink transition-colors hover:bg-rust/10 hover:text-rust"
+        >
+          Contact
+        </a>
+      </nav>
+    </details>
+  </div>
+
   <main>
     <!-- Hero -->
-    <section class="relative mx-3 mt-3 min-h-[340px] overflow-hidden rounded-2xl sm:mx-6 sm:mt-6 sm:min-h-[40vh]">
+    <section class="relative mx-3 mt-3 min-h-[max(340px,38vw)] overflow-hidden rounded-2xl sm:mx-6 sm:mt-6">
       <img
         src="/images/hero-bg.jpg"
         alt="Sunset sky over the mountains near Tucson, Arizona"
@@ -49,15 +86,15 @@ const outsideOfWork = [
       <div class="absolute inset-0 bg-gradient-to-t from-black/10 via-black/0 to-black/5"></div>
       <div class="relative p-6 sm:p-12">
         <h1
-          class="hero-in font-display max-w-2xl text-6xl leading-[1.02] font-semibold text-ink sm:text-7xl lg:text-8xl"
+          class="hero-in font-display max-w-2xl text-5xl leading-[1.03] font-semibold text-ink sm:text-6xl lg:text-7xl"
           style="animation-delay: 0ms"
         >
           Reclaimed Imagination
         </h1>
-        <div class="hero-in mt-5 h-[3px] w-14 bg-rust" style="animation-delay: 150ms"></div>
+        <div class="hero-in mt-5 h-[3px] w-14 bg-rust" style="animation-delay: 250ms"></div>
         <p
           class="hero-in mt-5 font-body text-base leading-snug text-ink/90 sm:text-lg sm:whitespace-nowrap lg:text-xl"
-          style="animation-delay: 300ms"
+          style="animation-delay: 500ms"
         >
           Marketing consulting from sunny Tucson, Arizona.
         </p>
@@ -66,13 +103,13 @@ const outsideOfWork = [
 
     <div class="mx-auto max-w-5xl px-6 sm:px-8">
       <!-- What I Do -->
-      <section class="pt-16 sm:pt-20">
+      <section id="what-i-do" class="pt-16 sm:pt-20">
         <p class="eyebrow" data-reveal>What I Do</p>
         <div class="mt-2 mb-10 h-px w-10 bg-rust/40" data-reveal-line></div>
         <div class="grid grid-cols-1 gap-x-10 gap-y-14 sm:grid-cols-2 sm:gap-y-16 lg:grid-cols-4">
           {
             whatIDo.map((item, i) => (
-              <div data-reveal style={`transition-delay: ${i * 90}ms`}>
+              <div data-reveal style={`transition-delay: ${i * 160}ms`}>
                 <Icon name={item.icon} class="h-11 w-11 text-rust" />
                 <h3 class="font-display mt-4 text-xl font-semibold text-ink">{item.title}</h3>
                 <p class="mt-2 text-[0.95rem] leading-relaxed text-ink/70">{item.body}</p>
@@ -83,7 +120,7 @@ const outsideOfWork = [
       </section>
 
       <!-- Links -->
-      <section class="pt-14 pb-4 sm:pt-16">
+      <section id="links" class="pt-14 pb-4 sm:pt-16">
         <p class="eyebrow" data-reveal>Links</p>
         <div class="mt-2 mb-10 h-px w-10 bg-rust/40" data-reveal-line></div>
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
@@ -95,9 +132,9 @@ const outsideOfWork = [
                 rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                 class="group flex flex-col items-center gap-4 rounded-xl border border-ink/15 px-6 py-10 text-center transition-colors hover:border-rust/50 hover:bg-rust/5"
                 data-reveal
-                style={`transition-delay: ${i * 90}ms`}
+                style={`transition-delay: ${i * 160}ms`}
               >
-                <Icon name={link.icon} class="h-11 w-11 text-rust" />
+                <Icon name={link.icon} class={link.icon === "linkedin" ? "h-8 w-8 text-rust" : "h-11 w-11 text-rust"} />
                 <span class="font-display text-lg font-semibold text-ink">{link.label}</span>
                 <Icon name="arrow-right" class="h-4 w-4 text-rust transition-transform group-hover:translate-x-1" />
               </a>
@@ -107,7 +144,7 @@ const outsideOfWork = [
       </section>
 
       <!-- About -->
-      <section class="border-t border-ink/10 pt-14 pb-4 sm:pt-16">
+      <section id="about" class="border-t border-ink/10 pt-14 pb-4 sm:pt-16">
         <p class="eyebrow" data-reveal>About</p>
         <div class="mt-2 mb-10 h-px w-10 bg-rust/40" data-reveal-line></div>
         <div class="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start lg:gap-14">
@@ -132,13 +169,17 @@ const outsideOfWork = [
               <p>Outside of work I am often spending time with my family, running, and listening to music.</p>
             </div>
           </div>
-          <img
-            src="/images/headshot.jpg"
-            alt="Josh Cohen, founder of Reclaimed Imagination"
-            class="aspect-[4/5] w-full rounded-2xl object-cover"
-            data-reveal
-            style="transition-delay: 120ms"
-          />
+          <div data-reveal style="transition-delay: 200ms">
+            <img
+              src="/images/headshot.jpg"
+              alt="Josh Cohen, founder of Reclaimed Imagination"
+              class="aspect-[4/5] w-full rounded-2xl object-cover"
+            />
+            <div class="mt-4 text-center">
+              <p class="font-display text-lg font-semibold text-ink">Josh Cohen</p>
+              <p class="text-sm text-ink/60">Marketing Consultant</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -153,7 +194,7 @@ const outsideOfWork = [
                 href={item.href}
                 class="group flex items-center justify-between rounded-xl border border-ink/15 px-6 py-6 transition-colors hover:border-rust/50 hover:bg-rust/5"
                 data-reveal
-                style={`transition-delay: ${i * 90}ms`}
+                style={`transition-delay: ${i * 160}ms`}
               >
                 <span class="flex items-center gap-4">
                   <Icon name={item.icon} class="h-8 w-8 text-rust" />
@@ -168,7 +209,7 @@ const outsideOfWork = [
     </div>
 
     <!-- Footer -->
-    <footer class="relative mx-3 mb-3 overflow-hidden rounded-2xl bg-ink sm:mx-6 sm:mb-6">
+    <footer id="contact" class="relative mx-3 mb-3 overflow-hidden rounded-2xl bg-ink sm:mx-6 sm:mb-6">
       <div class="relative z-10 flex flex-col gap-8 px-6 py-12 sm:flex-row sm:items-center sm:gap-16 sm:px-12">
         <div>
           <h2 class="font-display text-3xl font-semibold text-cream">Let's connect.</h2>
@@ -206,4 +247,17 @@ const outsideOfWork = [
       </svg>
     </footer>
   </main>
+
+  <script>
+    document.querySelectorAll<HTMLAnchorElement>("[data-nav] nav a").forEach((a) => {
+      a.addEventListener("click", () => a.closest("details")?.removeAttribute("open"));
+    });
+
+    document.addEventListener("click", (e) => {
+      const nav = document.querySelector("[data-nav]");
+      if (nav?.hasAttribute("open") && !nav.contains(e.target as Node)) {
+        nav.removeAttribute("open");
+      }
+    });
+  </script>
 </Layout>

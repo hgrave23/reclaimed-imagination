@@ -12,7 +12,8 @@ interface Props {
     | "map-pin"
     | "arrow-right"
     | "strava"
-    | "spotify";
+    | "spotify"
+    | "menu";
   class?: string;
 }
 
@@ -130,6 +131,13 @@ const { name, class: className = "" } = Astro.props;
         fill="currentColor"
         d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.599h4.172L10.463 0l-7 13.828h4.169"
       />
+    </svg>
+  )
+}
+{
+  name === "menu" && (
+    <svg viewBox="0 0 24 24" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
     </svg>
   )
 }
