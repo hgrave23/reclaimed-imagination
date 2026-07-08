@@ -1,6 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Icon from "../components/Icon.astro";
+import footerMountain from "../assets/footer-mountain.svg?raw";
+
+const calendarUrl = "https://calendar.app.google/KDfkHdEhf4fBwj7o9";
 
 const whatIDo = [
   {
@@ -28,7 +31,7 @@ const whatIDo = [
 const links = [
   { icon: "folder", label: "Portfolio", href: "#" },
   { icon: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/jacohen614" },
-  { icon: "calendar", label: "Let's Meet", href: "https://calendar.app.google/KDfkHdEhf4fBwj7o9" },
+  { icon: "calendar", label: "Let's Meet", href: calendarUrl },
 ] as const;
 
 const outsideOfWork = [
@@ -39,12 +42,12 @@ const outsideOfWork = [
 
 <Layout>
   <!-- Nav -->
-  <div class="fixed top-4 right-4 z-50 sm:top-6 sm:right-6">
+  <div class="fixed top-6 right-8 z-50 sm:top-9 sm:right-11">
     <details class="group" data-nav>
       <summary
-        class="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-ink/10 bg-cream/90 shadow-md backdrop-blur transition-colors hover:border-rust/40 [&::-webkit-details-marker]:hidden"
+        class="flex cursor-pointer list-none items-center justify-center p-1 text-ink/70 transition-colors hover:text-rust [&::-webkit-details-marker]:hidden"
       >
-        <Icon name="menu" class="h-5 w-5 text-ink" />
+        <Icon name="menu" class="h-6 w-6 drop-shadow-[0_1px_3px_rgba(0,0,0,0.3)]" />
       </summary>
       <nav class="absolute right-0 mt-2 w-52 rounded-xl border border-ink/10 bg-cream p-2 shadow-lg">
         <a
@@ -134,7 +137,9 @@ const outsideOfWork = [
                 data-reveal
                 style={`transition-delay: ${i * 160}ms`}
               >
-                <Icon name={link.icon} class={link.icon === "linkedin" ? "h-8 w-8 text-rust" : "h-11 w-11 text-rust"} />
+                <span class="flex h-11 w-11 items-center justify-center">
+                  <Icon name={link.icon} class={link.icon === "linkedin" ? "h-8 w-8 text-rust" : "h-11 w-11 text-rust"} />
+                </span>
                 <span class="font-display text-lg font-semibold text-ink">{link.label}</span>
                 <Icon name="arrow-right" class="h-4 w-4 text-rust transition-transform group-hover:translate-x-1" />
               </a>
@@ -223,28 +228,20 @@ const outsideOfWork = [
             <Icon name="envelope" class="h-5 w-5 text-rust" />
             josh@reclaimedimagination.com
           </a>
+          <a href={calendarUrl} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 hover:text-rust-light">
+            <Icon name="calendar" class="h-5 w-5 text-rust" />
+            Let's Meet
+          </a>
           <span class="flex items-center gap-3">
             <Icon name="map-pin" class="h-5 w-5 text-rust" />
             Tucson, Arizona
           </span>
         </div>
       </div>
-      <svg
+      <div
         class="pointer-events-none absolute right-0 bottom-0 h-28 w-full text-rust/70 sm:h-32 sm:w-2/3"
-        viewBox="0 0 500 140"
-        preserveAspectRatio="xMaxYMax meet"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle cx="430" cy="35" r="10" fill="currentColor" />
-        <path
-          d="M0 140 100 60 150 95 220 30 280 90 330 55 400 110 440 75 500 140"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linejoin="round"
-          stroke-linecap="round"
-        />
-      </svg>
+        set:html={footerMountain}
+      />
     </footer>
   </main>
 
