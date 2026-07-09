@@ -7,24 +7,19 @@ const calendarUrl = "https://calendar.app.google/KDfkHdEhf4fBwj7o9";
 
 const whatIDo = [
   {
-    icon: "target",
-    title: "Marketing",
-    body: "Planning, positioning and practical strategy that helps organizations communicate more effectively.",
+    icon: "clipboard",
+    title: "Strategy",
+    body: "Marketing decisions begin by understanding where you want to go. Let's define your path, identify your audience, and establish your priorities, so you can show up intentionally.",
   },
   {
     icon: "pencil",
-    title: "Content",
-    body: "Websites, articles, newsletters and thought leadership designed for real audiences.",
+    title: "Story",
+    body: "People rarely make decisions based on information alone. They act when your story reflects their values, experiences, and aspirations.",
   },
   {
-    icon: "chat",
-    title: "Communications",
-    body: "Public relations, messaging and audience engagement across digital, print and in-person channels.",
-  },
-  {
-    icon: "clipboard",
-    title: "Project Management",
-    body: "Keeping people, priorities and projects aligned from idea through execution.",
+    icon: "target",
+    title: "Purpose",
+    body: "Activity alone won't accomplish your goals. Marketing initiatives should serve your organization's purpose and help accomplish your goals.",
   },
 ] as const;
 
@@ -32,11 +27,6 @@ const links = [
   { icon: "folder", label: "Portfolio", href: "#" },
   { icon: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/jacohen614" },
   { icon: "calendar", label: "Let's Meet", href: calendarUrl },
-] as const;
-
-const outsideOfWork = [
-  { icon: "strava", label: "Cardio", href: "#" },
-  { icon: "spotify", label: "Music", href: "#" },
 ] as const;
 ---
 
@@ -109,7 +99,7 @@ const outsideOfWork = [
       <section id="what-i-do" class="pt-16 sm:pt-20">
         <p class="eyebrow" data-reveal>What I Do</p>
         <div class="mt-2 mb-10 h-px w-10 bg-rust/40" data-reveal-line></div>
-        <div class="grid grid-cols-1 gap-x-10 gap-y-14 sm:grid-cols-2 sm:gap-y-16 lg:grid-cols-4">
+        <div class="grid grid-cols-1 gap-x-10 gap-y-14 sm:grid-cols-3">
           {
             whatIDo.map((item, i) => (
               <div data-reveal style={`transition-delay: ${i * 160}ms`}>
@@ -149,7 +139,7 @@ const outsideOfWork = [
       </section>
 
       <!-- About -->
-      <section id="about" class="border-t border-ink/10 pt-14 pb-4 sm:pt-16">
+      <section id="about" class="border-t border-ink/10 pt-14 pb-16 sm:pt-16 sm:pb-20">
         <p class="eyebrow" data-reveal>About</p>
         <div class="mt-2 mb-10 h-px w-10 bg-rust/40" data-reveal-line></div>
         <div class="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start lg:gap-14">
@@ -185,30 +175,6 @@ const outsideOfWork = [
               <p class="text-sm text-ink/60">Marketing Consultant</p>
             </div>
           </div>
-        </div>
-      </section>
-
-      <!-- Outside of Work -->
-      <section class="border-t border-ink/10 pt-14 pb-16 sm:pt-16 sm:pb-20">
-        <p class="eyebrow" data-reveal>Outside of Work</p>
-        <div class="mt-2 mb-10 h-px w-10 bg-rust/40" data-reveal-line></div>
-        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {
-            outsideOfWork.map((item, i) => (
-              <a
-                href={item.href}
-                class="group flex items-center justify-between rounded-xl border border-ink/15 px-6 py-6 transition-colors hover:border-rust/50 hover:bg-rust/5"
-                data-reveal
-                style={`transition-delay: ${i * 160}ms`}
-              >
-                <span class="flex items-center gap-4">
-                  <Icon name={item.icon} class="h-8 w-8 text-rust" />
-                  <span class="font-display text-lg font-semibold text-ink">{item.label}</span>
-                </span>
-                <Icon name="arrow-right" class="h-4 w-4 text-rust transition-transform group-hover:translate-x-1" />
-              </a>
-            ))
-          }
         </div>
       </section>
     </div>
