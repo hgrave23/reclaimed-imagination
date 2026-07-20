@@ -24,9 +24,36 @@ const whatIDo = [
 ] as const;
 
 const links = [
-  { icon: "folder", label: "Portfolio", href: "#" },
+  {
+    icon: "folder",
+    label: "Portfolio",
+    href: "https://drive.google.com/file/d/1e0NUa65_6MMd0ON7nvK8lGV2ULYUMX0S/view?usp=sharing",
+  },
   { icon: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/jacohen614" },
   { icon: "calendar", label: "Let's Meet", href: calendarUrl },
+] as const;
+
+const testimonials = [
+  {
+    quote:
+      "I've really enjoyed working with Josh on our website and digital marketing efforts. He's been incredibly easy to work with, responsive, and proactive throughout the entire engagement. Coming into this, I didn't have a clear strategy or much experience with digital marketing or building an online presence. Josh helped simplify what initially felt like an overwhelming aspect of the business and provided a practical roadmap that has been both effective and easy to maintain alongside the demands of serving wealth management clients.",
+    name: "Chase G.",
+  },
+  {
+    quote:
+      "Working with Josh is a pleasure and he has become an essential member of our development and communications team. Since coming on board six months ago, we have seen a substantial improvement in Google Ad Grant funding utilization. What I appreciate about Josh is his strong work ethic, his commitment to excellence, brand awareness, and his proactive desire to learn and improve results.",
+    name: "Andrea D.",
+  },
+  {
+    quote:
+      "Josh created a professional and polished product for our organization. He's especially talented at conveying information effectively in a fun and accessible style. We absolutely hope to work with him again.",
+    name: "Samara K.",
+  },
+  {
+    quote:
+      "My experience working with Josh has been great! He's incredibly knowledgeable and has done an excellent job guiding us on crafting the right messaging for our intended audience. He consistently keeps us on track with marketing timelines and isn't afraid to share his opinion on what he thinks will (or won't) resonate with our audience, which has been invaluable. One of the things I appreciate most is his genuine curiosity to understand what we do and who we serve. Not only has that made working together enjoyable, but I believe it also enables Josh to provide more thoughtful, effective guidance that is tailored to our unique needs.",
+    name: "Sergio O.",
+  },
 ] as const;
 ---
 
@@ -57,6 +84,12 @@ const links = [
           class="block rounded-lg px-3 py-2 font-body text-sm font-semibold text-ink transition-colors hover:bg-rust/10 hover:text-rust"
         >
           About Josh
+        </a>
+        <a
+          href="#testimonials"
+          class="block rounded-lg px-3 py-2 font-body text-sm font-semibold text-ink transition-colors hover:bg-rust/10 hover:text-rust"
+        >
+          Testimonials
         </a>
         <a
           href="#contact"
@@ -139,7 +172,7 @@ const links = [
       </section>
 
       <!-- About -->
-      <section id="about" class="border-t border-ink/10 pt-14 pb-16 sm:pt-16 sm:pb-20">
+      <section id="about" class="border-t border-ink/10 pt-14 pb-4 sm:pt-16">
         <p class="eyebrow" data-reveal>About</p>
         <div class="mt-2 mb-10 h-px w-10 bg-rust/40" data-reveal-line></div>
         <div class="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start lg:gap-14">
@@ -175,6 +208,27 @@ const links = [
               <p class="text-sm text-ink/60">Marketing Consultant</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section id="testimonials" class="border-t border-ink/10 pt-14 pb-16 sm:pt-16 sm:pb-20">
+        <p class="eyebrow" data-reveal>Testimonials</p>
+        <div class="mt-2 mb-10 h-px w-10 bg-rust/40" data-reveal-line></div>
+        <div class="grid grid-cols-1 items-start gap-6 sm:grid-cols-2">
+          {
+            testimonials.map((t, i) => (
+              <blockquote
+                class="rounded-xl border border-ink/15 p-6 sm:p-8"
+                data-reveal
+                style={`transition-delay: ${i * 120}ms`}
+              >
+                <Icon name="quote" class="h-7 w-7 text-rust/60" />
+                <p class="mt-3 text-[0.95rem] leading-relaxed text-ink/75">{t.quote}</p>
+                <footer class="mt-4 font-display text-base font-semibold text-rust">{t.name}</footer>
+              </blockquote>
+            ))
+          }
         </div>
       </section>
     </div>

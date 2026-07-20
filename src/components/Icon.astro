@@ -11,7 +11,8 @@ interface Props {
     | "envelope"
     | "map-pin"
     | "arrow-right"
-    | "menu";
+    | "menu"
+    | "quote";
   class?: string;
 }
 
@@ -126,6 +127,19 @@ const { name, class: className = "" } = Astro.props;
   name === "menu" && (
     <svg viewBox="0 0 24 24" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
       <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+    </svg>
+  )
+}
+{
+  name === "quote" && (
+    <svg viewBox="0 0 48 48" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M10 26v-4a8 8 0 0 1 8-8M10 26h6v8h-8v-8Zm18 0v-4a8 8 0 0 1 8-8M28 26h6v8h-8v-8Z"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linejoin="round"
+        stroke-linecap="round"
+      />
     </svg>
   )
 }
