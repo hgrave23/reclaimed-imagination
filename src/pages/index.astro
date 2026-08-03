@@ -121,9 +121,11 @@ const testimonialColumns = [
     <!-- Hero -->
     <section class="relative mx-3 mt-3 min-h-[max(340px,38vw)] overflow-hidden rounded-2xl sm:mx-6 sm:mt-6">
       <img
-        src="/images/hero-bg.jpg"
+        src="/images/hero-bg.webp"
         alt="Sunset sky over the mountains near Tucson, Arizona"
         class="absolute inset-0 h-full w-full object-cover object-top"
+        fetchpriority="high"
+        decoding="async"
       />
       <div class="absolute inset-0 bg-gradient-to-t from-black/10 via-black/0 to-black/5"></div>
       <div class="relative p-6 sm:p-12">
@@ -215,9 +217,11 @@ const testimonialColumns = [
           </div>
           <div data-reveal style="transition-delay: 200ms">
             <img
-              src="/images/headshot.jpg"
+              src="/images/headshot.webp"
               alt="Josh Cohen, founder of Reclaimed Imagination"
               class="aspect-[4/5] w-full rounded-2xl object-cover"
+              loading="lazy"
+              decoding="async"
             />
             <div class="mt-4 text-center">
               <p class="font-display text-lg font-semibold text-ink">Josh Cohen</p>
