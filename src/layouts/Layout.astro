@@ -4,11 +4,14 @@ import "../styles/global.css";
 interface Props {
   title?: string;
   description?: string;
+  /** Suppress indexing, schema, and analytics — use on error/utility pages. */
+  noindex?: boolean;
 }
 
 const {
   title = "Reclaimed Imagination | Marketing Strategy, Tucson AZ",
   description = "Marketing consulting from sunny Tucson, Arizona. Strategy, story, and purpose-driven marketing with Josh Cohen.",
+  noindex = false,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -45,8 +48,16 @@ const schema = {
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="canonical" href={canonicalURL} />
     <meta name="theme-color" content="#24251b" />
+    {noindex && <meta name="robots" content="noindex" />}
     <title>{title}</title>
     <meta name="description" content={description} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
@@ -62,23 +73,32 @@ const schema = {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageURL} />
 
-    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    {!noindex && <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />}
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5YYHMZH4MC"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(...args: unknown[]) {
-        dataLayer.push(args);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-5YYHMZH4MC");
-    </script>
+    {
+      !noindex && (
+        <Fragment>
+          {/* Google tag (gtag.js) */}
+          <script async is:inline src="https://www.googletagmanager.com/gtag/js?id=G-5YYHMZH4MC" />
+          <script is:inline>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              window.dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "G-5YYHMZH4MC");
+          </script>
 
-    <!-- Cloudflare Web Analytics -->
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "8e5edf899bc441adaf79e5aff1b1121e"}'
-    ></script>
-    <!-- End Cloudflare Web Analytics -->
+          {/* Cloudflare Web Analytics */}
+          <script
+            is:inline
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon='{"token": "8e5edf899bc441adaf79e5aff1b1121e"}'
+          />
+        </Fragment>
+      )
+    }
   </head>
   <body>
     <slot />

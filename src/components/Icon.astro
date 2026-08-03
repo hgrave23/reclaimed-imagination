@@ -3,7 +3,6 @@ interface Props {
   name:
     | "target"
     | "pencil"
-    | "chat"
     | "clipboard"
     | "folder"
     | "calendar"
@@ -21,7 +20,14 @@ const { name, class: className = "" } = Astro.props;
 
 {
   name === "target" && (
-    <svg viewBox="0 0 48 48" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+    <svg
+      viewBox="0 0 48 48"
+      fill="none"
+      class={className}
+      aria-hidden="true"
+      focusable="false"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2" />
       <circle cx="24" cy="24" r="9" stroke="currentColor" stroke-width="2" />
       <circle cx="24" cy="24" r="2.25" fill="currentColor" />
@@ -30,7 +36,14 @@ const { name, class: className = "" } = Astro.props;
 }
 {
   name === "pencil" && (
-    <svg viewBox="0 0 48 48" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+    <svg
+      viewBox="0 0 48 48"
+      fill="none"
+      class={className}
+      aria-hidden="true"
+      focusable="false"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         d="M13 35.5 33.7 14.8a3 3 0 0 1 4.24 0l1.26 1.26a3 3 0 0 1 0 4.24L18.5 39 11 41z"
         stroke="currentColor"
@@ -42,20 +55,15 @@ const { name, class: className = "" } = Astro.props;
   )
 }
 {
-  name === "chat" && (
-    <svg viewBox="0 0 48 48" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M9 15a4 4 0 0 1 4-4h22a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4H21l-8 7v-7h-.5A3.5 3.5 0 0 1 9 31.5z"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linejoin="round"
-      />
-    </svg>
-  )
-}
-{
   name === "clipboard" && (
-    <svg viewBox="0 0 48 48" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+    <svg
+      viewBox="0 0 48 48"
+      fill="none"
+      class={className}
+      aria-hidden="true"
+      focusable="false"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <rect x="12" y="10" width="24" height="30" rx="2.5" stroke="currentColor" stroke-width="2" />
       <path d="M19 10a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2H19z" stroke="currentColor" stroke-width="2" />
       <path d="M18 21h12M18 27h12M18 33h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
@@ -64,7 +72,14 @@ const { name, class: className = "" } = Astro.props;
 }
 {
   name === "folder" && (
-    <svg viewBox="0 0 48 48" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+    <svg
+      viewBox="0 0 48 48"
+      fill="none"
+      class={className}
+      aria-hidden="true"
+      focusable="false"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         d="M8 15a2 2 0 0 1 2-2h9l3 4h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2z"
         stroke="currentColor"
@@ -76,7 +91,14 @@ const { name, class: className = "" } = Astro.props;
 }
 {
   name === "calendar" && (
-    <svg viewBox="0 0 48 48" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+    <svg
+      viewBox="0 0 48 48"
+      fill="none"
+      class={className}
+      aria-hidden="true"
+      focusable="false"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <rect x="9" y="11" width="30" height="27" rx="2.5" stroke="currentColor" stroke-width="2" />
       <path d="M9 19h30" stroke="currentColor" stroke-width="2" />
       <path d="M16 7v8M32 7v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
@@ -86,7 +108,13 @@ const { name, class: className = "" } = Astro.props;
 }
 {
   name === "linkedin" && (
-    <svg viewBox="0 0 24 24" class={className} xmlns="http://www.w3.org/2000/svg">
+    <svg
+      viewBox="0 0 24 24"
+      class={className}
+      aria-hidden="true"
+      focusable="false"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <rect width="24" height="24" rx="5" fill="currentColor" />
       <path
         fill="#f8f3ee"
@@ -97,7 +125,14 @@ const { name, class: className = "" } = Astro.props;
 }
 {
   name === "envelope" && (
-    <svg viewBox="0 0 48 48" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+    <svg
+      viewBox="0 0 48 48"
+      fill="none"
+      class={className}
+      aria-hidden="true"
+      focusable="false"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <rect x="7" y="12" width="34" height="24" rx="3" stroke="currentColor" stroke-width="2" />
       <path d="M8 14l16 13 16-13" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
     </svg>
@@ -105,7 +140,14 @@ const { name, class: className = "" } = Astro.props;
 }
 {
   name === "map-pin" && (
-    <svg viewBox="0 0 48 48" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+    <svg
+      viewBox="0 0 48 48"
+      fill="none"
+      class={className}
+      aria-hidden="true"
+      focusable="false"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         d="M24 41s13-11.6 13-21.5C37 12.6 31.2 7 24 7S11 12.6 11 19.5C11 29.4 24 41 24 41Z"
         stroke="currentColor"
@@ -118,21 +160,42 @@ const { name, class: className = "" } = Astro.props;
 }
 {
   name === "arrow-right" && (
-    <svg viewBox="0 0 24 24" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      class={className}
+      aria-hidden="true"
+      focusable="false"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path d="M4 12h16M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
     </svg>
   )
 }
 {
   name === "menu" && (
-    <svg viewBox="0 0 24 24" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      class={className}
+      aria-hidden="true"
+      focusable="false"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
     </svg>
   )
 }
 {
   name === "quote" && (
-    <svg viewBox="0 0 48 48" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+    <svg
+      viewBox="0 0 48 48"
+      fill="none"
+      class={className}
+      aria-hidden="true"
+      focusable="false"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         d="M10 26v-4a8 8 0 0 1 8-8M10 26h6v8h-8v-8Zm18 0v-4a8 8 0 0 1 8-8M28 26h6v8h-8v-8Z"
         stroke="currentColor"
