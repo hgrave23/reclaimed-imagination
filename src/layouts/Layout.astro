@@ -64,6 +64,17 @@ const schema = {
 
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5YYHMZH4MC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(...args: unknown[]) {
+        dataLayer.push(args);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-5YYHMZH4MC");
+    </script>
+
     <!-- Cloudflare Web Analytics -->
     <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "8e5edf899bc441adaf79e5aff1b1121e"}'
     ></script>
